@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript"></script>
+        <script type='text/javascript' src="dd.js"> </script>
+        <script type="text/javascript">
+		dojo.addOnLoad(function(){
+			var cvs=document.getElementById('canvas');
+			var urls=[
+				"http://s5.sinaimg.cn/middle/5a3ab1b1ga96a4d004314&690",
+				"http://s14.sinaimg.cn/middle/5a3ab1b1ga96a4932587d&690",
+				"http://s12.sinaimg.cn/middle/5a3ab1b1ga96a48b848cb&690",
+				"http://s15.sinaimg.cn/middle/5a3ab1b1ga96a4c67b83e&690",
+				"http://s11.sinaimg.cn/middle/5a3ab1b1ga96a47870cfa&690",
+				"http://s6.sinaimg.cn/middle/5a3ab1b1ga96a47689785&690",
+				"http://s16.sinaimg.cn/middle/5a3ab1b1g77576cef193f&690",
+				"http://www.mhtml5.com/wp-content/uploads/2011/02/34545-500x292.jpg",
+				"http://www.mhtml5.com/wp-content/uploads/2011/05/20100730111141332898.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/07/QQ%E6%88%AA%E5%9B%BE20110715103639-500x379.jpg",
+				"http://www.mhtml5.com/wp-content/uploads/2011/07/QQ%E6%88%AA%E5%9B%BE20110726103042-500x376.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/05/222222-700x521.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/05/123123.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/05/123456-700x399.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/05/345555-700x525.jpg",
+				"http://www.mhtml5.com/wp-content/uploads/2011/03/1245.png",
+				"http://www.mhtml5.com/wp-content/uploads/2011/04/6666-700x459.jpg",
+				"http://www.html5china.com/uploads/101226/1-101226035252I1.jpg",
+				"http://www.mhtml5.com/wp-content/uploads/2011/02/pajama.jpg"
+			]
+
+
+			var myflow=new Flow(cvs,urls, 0.38, 2)
+			myflow.init();
+
+			dojo.connect(dojo.byId("next"),"onclick",function(){
+				console.log("click");
+				myflow.shift(1);
+			})
+			dojo.connect(dojo.byId("prev"),"onclick",function(){
+				console.log("click");
+				myflow.shift(-1);
+			})
+
+		})
+        </script>
+        <title>Flow</title>
+
+        <style type='text/css'>
+			body { margin: 20px; font-family: arial,verdana,helvetica; background: #556;}
+			h1 { font-size: 140%; font-weight:normal; color: #036; border-bottom: 1px solid #ccc; }
+			canvas { border: 1px solid #000; margin-right: 20px; margin-bottom: 20px; }
+			div {float: right}
+		</style>
+    </head>
+    <body>
+	<h1>A canvas <code>Flow</code> example<button id=next>next</button><button id=prev>prev</button></h1>
+
+			<canvas id="canvas" style="left:30px" width="700" height="433"></canvas>
+
+    </body>
+</html>

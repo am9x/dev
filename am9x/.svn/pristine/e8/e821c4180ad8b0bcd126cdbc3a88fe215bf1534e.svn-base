@@ -1,0 +1,80 @@
+
+ #container {
+      width: 100%;
+      height: 100%;
+      margin:auto;
+      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 250px;
+	  background:#202020;
+      background-image: -webkit-radial-gradient(#303040,#101010);
+	      	          -webkit-box-shadow:8px 10px 10px rgba(10,10,10,0.6);
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+	        display:inline-block;
+      -webkit-transition: -webkit-transform 3s;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform : translateZ(-800px);
+    }
+    
+    #shape {
+      position: relative;
+      top: 60px;
+      margin: 0 auto;
+      
+      width: 240px;
+      height: 320px;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    
+    .plane {
+		
+      position: absolute;
+      visibility:hidden;
+      width: 300px;
+      height: 169px;
+      'border: 1px solid white;
+      -_webkit-border-radius: 12px;
+      -webkit-box-sizing: border-box;
+		background-repeat:no-repeat;        background-position:bottom center;
+		-_webkit-box-reflect: below 10px -webkit-linear-gradient(transparent,transparent 30%,rgba(255,255,255,0.1) 70%,rgba(255,255,255,0.4));
+		-webkit-box-shadow:0 0 7px rgba(255,192,192,0.8);
+      -webkit-transition: -webkit-transform 0.2s;
+      -webkit-backface-visibility: hidden;
+    }
+	.plane img{
+		width:100%;
+		height:100%;
+		}
+    #shape.backfaces  {
+      -webkit-backface-visibility: v_isible;
+    }
+    
+
+
+
+
+     /* ---------- ring styles ------------- */
+.ring > .p0 {     visibility:visible;   -webkit-transform: translateZ(700px)  scale(1.2) ;          background-color: rgba(255, 255, 222, 1);		             }
+.ring > .p1 { visibility:visible;  -webkit-transform: rotateY(-63deg) translateX(447px);     opacity: 0.8;}
+.ring > .p-1 { visibility:visible;  -webkit-transform: rotateY(63deg) translateX(-447px);     opacity: 0.8;}
+.ring > .p2 { visibility:visible;  -webkit-transform: rotateY(-59deg) translateX(466px);     opacity: 0.6;}
+.ring > .p-2 { visibility:visible;  -webkit-transform: rotateY(59deg) translateX(-466px);     opacity: 0.6;}
+.ring > .p3 { visibility:visible;  -webkit-transform: rotateY(-55deg) translateX(488px);     opacity: 0.4;}
+.ring > .p-3 { visibility:visible;  -webkit-transform: rotateY(55deg) translateX(-488px);     opacity: 0.4;}
+.ring- > .p4 {  -webkit-transform: rotateY(-51deg) translateX(512px);}
+.ring- > .p-4 {-webkit-transform: rotateY(51deg) translateX(-512px);}
+.ring- > .p5 {-webkit-transform: rotateY(-48deg) translateX(538px);}
+.ring- > .p-5 {-webkit-transform: rotateY(48deg) translateX(-538px);}
+.ring- > .p6 {-webkit-transform: rotateY(-45deg) translateX(566px);}
+.ring- > .p-6 {-webkit-transform: rotateY(45deg) translateX(-566px);}
+.ring- > .p7 {-webkit-transform: rotateY(-42deg) translateX(595px);}
+.ring- > .p-7 {-webkit-transform: rotateY(42deg) translateX(-595px);}
+.ring- > .p8 {-webkit-transform: rotateY(-40deg) translateX(625px);}
+.ring- > .p-8 {-webkit-transform: rotateY(40deg) translateX(-625px);}
+
+.ring > .plane{
+
+    }

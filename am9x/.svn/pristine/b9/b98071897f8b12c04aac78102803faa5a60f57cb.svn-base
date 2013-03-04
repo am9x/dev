@@ -1,0 +1,16 @@
+﻿$(document).ready(function (x) {
+ // $("#myCanvas").live("vmousedown",function(x,e){
+ // console.log(x,e,this)
+ // })
+  var elem = $("#myCanvas")[0];
+   var ctx = elem.getContext('2d');
+  ctx.fillStyle = '#00f';
+  if (!ctx) {
+    return;
+  }
+  elem.addEventListener("touchstart",function(e,v){
+    console.log("touchstart",e,v,this);
+    ctx.arc(evt.offsetX, evt.offsetY, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+  },false)
+})

@@ -1,0 +1,81 @@
+#postsList .ui-content{
+	padding:0.3em;
+	}
+#postsList .post{
+	min-height: 100px;
+	display:-webkit-box;
+	position :relative; 
+	background-repeat : no-repeat;
+	}
+#postsList .repost{
+	background:#cceecc;
+	margin:1em;
+		display:-webkit-box;
+	border-top-left-radius: .6em;
+	border-top-right-radius: .6em;
+	position :relative;
+	padding:1em 1em 1em 1em;
+	}
+#postsList .repost .text, #postsList .repost h1{
+	display:inline ;
+	}
+#postsList .repost .coner_rt, #postsList .repost footer{
+	display:none ;
+	}	
+#postsList .avatar{
+		width:4em;
+		height:4em;
+			background-size :100% auto;
+		margin-right:1em;
+}
+#postsList .repostAvatar{
+	width:4em;
+	height:4em;
+	background-repeat : no-repeat;
+	background-image : url("../image/biezhen.png") ;
+	background-size :4em auto;
+	position: absolute;
+	left:-2em;
+	top:-0.3em;
+	}
+#postsList .text {
+font-size: 16px;
+white-space : normal ;
+margin-bottom:1em;
+}
+#postsList .flex {
+	-webkit-box-flex:1;
+	-webkit-box-flex:1;
+}
+#postsList .right {
+		width:6em;
+		-webkit-box-pack:end;
+}
+#postsList .postpic{
+	width:5em;
+	height:5em;
+	border: thick solid white; 
+	background-position: center center;
+	background-position: center center;
+	border-radius: .3em;
+	-webkit-transform:rotate(15deg);
+
+	-webkit-box-shadow:0 0 1em grey;
+		position: absolute;
+	right:0em;
+	bottom:-2em;
+	}
+#postsList footer {
+
+}
+#postsList .ui-li-heading {
+font-size: 16px;
+}
+
+
+
+#postsList .coner_rt{
+	position: absolute;
+	right:1em;
+	top:5px;
+}

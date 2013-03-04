@@ -1,0 +1,31 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>paint </title> 
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  <script src="resources/imageCode.js"></script>    
+  <script src="resources/imageCopy.js"></script>   
+  <script src="resources/event.js"></script>  
+  <!--
+  <script src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js" djConfig="isDebug:true"></script>
+  -->
+</head> 
+<body> 
+<hr>
+<header>header</header>
+<canvas id="myCanvas" width=750 height=400 style="background:skyBlue">
+  </canvas>
+  <canvas id="myCanvas2" width=750 height=400 style="background:skyBlue">
+  </canvas>
+
+    <button id="imgcopy">imgcopy</button><div>
+	<div>
+	</body>
+	</html>

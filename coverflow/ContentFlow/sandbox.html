@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <link rel="stylesheet" title="Standard" href="styles.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript" src="contentflow.js"></script>
+    <script tyle="text/javascript">
+        var cf = new ContentFlow('contentFlow', {
+          reflectionColor: "#000000",
+          visibleItems:2,
+          startItem:0,
+          scrollInFrom:0,
+          onMakeActive : function(item){
+            console.log(item,"item")
+            console.log(item.element,item.content)
+          }
+        });
+    </script>
+</head>
+<body onload='console.log("CF",cf)'>
+
+
+    <!-- ===== FLOW ===== -->
+    <div id="contentFlow" class="ContentFlow">
+        <!-- should be place before flow so that contained images will be loaded first -->
+        <div class="loadIndicator"><div class="indicator"></div></div>
+
+        <div class="flow">
+
+
+            <div class="item">
+                <img class="content" src="pics/p1.jpg"/>
+                <div class="caption">pic1: some stripes</div>
+            </div>
+            <div class="item">
+                <img class="content" src="pics/p2.jpg"/>
+                <div class="caption">pic2: some stripes</div>
+            </div>
+            <div class="item">
+                <img class="content" src="pics/p3.jpg"/>
+                <div class="caption">pic3: some stripes</div>
+            </div>
+
+            <div class="item">
+                <img class="content" src="pics/pic0.png"/>
+                <div class="caption">pic4: some stripes</div>
+            </div>
+            <div class="item">
+                <img class="content" src="pics/pic1.png"/>
+                <div class="caption">pic5: some stripes</div>
+            </div>
+            <div class="item">
+                <img class="content" src="pics/pic2.png"/>
+                <div class="caption">pic6: some stripes</div>
+            </div>
+
+
+        </div>
+        <div class="globalCaption"></div>
+        <div class="scrollbar">
+            <div class="slider"><div class="position"></div></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

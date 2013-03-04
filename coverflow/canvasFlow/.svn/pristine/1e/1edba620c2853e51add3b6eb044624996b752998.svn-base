@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+@-webkit-keyframes fadeInOut {
+	0% {
+		opacity:1;
+    position.
+	 }
+
+	50% {
+		opacity: 0;	
+	}
+
+}
+.anim_fade_image{
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    
+	position:absolute;
+	-webkit-animation-name: fadeInOut;
+	-webkit-animation-timing-function: ease-in-out;
+
+	-webkit-animation-duration: 12s;
+	-webkit-animation-direction: alternate;
+}
+
+.anim_fade_image:hover{
+    opacity: 1;
+    filter: Alpha(opacity=100);
+    -webkit-transform: scale(2, 2);        
+}
+</style>
+</head>
+
+<body>
+        	<h3>Ð§¹û£º</h3>
+
+                	<img id="i1" class="anim_fade_image" src="http://image.zhangxinxu.com/image/study/p/s200/ps6.jpg" />
+                    <img src="http://image.zhangxinxu.com/image/study/p/s200/ps4.jpg" />
+
+
+    
+
+</body>
+</html>

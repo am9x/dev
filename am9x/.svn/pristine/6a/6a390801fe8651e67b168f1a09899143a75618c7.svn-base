@@ -1,0 +1,52 @@
+﻿function cmd_pagePostsList_refresh(){
+    WB2.anyWhere(function(W){
+    W.parseCMD("/statuses/friends_timeline.json", 
+      function(data){
+        console.log("callbackW",data);
+        am9wb.statuses_add(data.statuses);
+        $('#pagePostsList [data-icon="refresh"] .ui-btn-text').text("刷新");
+        paintPostsList(am9wb.statuses)
+      },
+      {
+        source  : am9wb.appkey,
+        count:10
+      },
+      {
+          method: 'get'
+      }
+    )
+  })
+}
+
+function cmd_pagePostsList_refreshSince(since){
+    WB2.anyWhere(function(W){
+    W.parseCMD("/statuses/friends_timeline.json", 
+      function(data){
+        console.log("====statuses/friends_timeline/ids callbackW",data);
+        //am9wb.statuses_add(data.statuses);
+        //alert(data.statuses.length);
+        $('#pagePostsList [data-icon="refresh"] .ui-btn-text').text("刷新("+data.statuses.length+")");
+        //paintPostsList(am9wb.statuses)
+      },
+      {
+        source  : am9wb.appkey ,
+        count:10,
+        since_id:since||am9wb.since
+      },
+      {
+          method: 'get'
+      }
+    )
+  })
+}
+
+function cmd_pagePostDetail_loadstatus(){
+  var post=am9wb.statuses_get(am9wb.statusId);
+  console.log("cmd_pagePostDetail_loadstatus",post)
+  var postDetail = $("#postDetail");
+    postDetail.empty();
+  var html= getPostHtml2(post);
+  $('<li>'+html+'</li>').appendTo(postDetail);
+  console.log("---",postDetail,html);
+  postDetail.listview('refresh');
+}

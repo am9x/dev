@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>列表页面</title>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<link rel="stylesheet" href="js/jquery.mobile-1.0b2.css" />
+		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script src="js/jquery.mobile-1.0b2.js"></script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<div data-role="page" data-title="金红叶网上商城">
+			<div data-role="header" data-theme="b">
+				<div align="center">
+				    <sapn style="float: left"><img src="images/ghy.png" style="width: 40;hight:40"></img></sapn>
+				    <div style="padding: 12 0 0 0">金红叶网上商城</div>
+				</div>
+			</div><!-- /header -->
+			
+			<div data-role="content">
+				<div align="center"></div>
+                <ul data-role="listview" data-theme="c" data-dividertheme="d">
+					<li data-role="list-divider">
+						<sapn style="color:#3365C1;font-style:normal;font-family:sans-serif">您好:欢迎光临金红叶网上商城</span>
+					</li>
+					<li>
+					   <a href="product_detail.html" data-transition="pop" >
+					       <img src="images/product/product_teset.jpg" />
+						   <h6>清风220抽盒装面纸&nbsp;<span style="color:red">促销:189.00 元/箱</span></h6>
+						   <p >规格:3盒/提*12提/箱</p>
+					   </a>
+				    </li>
+				    <li>
+				    	<a href="product_detail.html" data-transition="slideup" >
+					       <img src="images/product/product_02.png" />
+						   <h6>清风纸手帕&nbsp;<span style="color:red">促销:95.00 元/箱</span></h6>
+						   <p >规格:15包/提*30提/箱 8张/包</p>
+					   </a>
+				    </li>
+				    <li>
+				    	<a href="product_detail.html" data-transition="fade" >
+					       <img src="images/product/product_03.png" />
+						   <h6>清风抽卫&nbsp;<span style="color:red">促销:80.00 元/箱</span></h6>
+						   <p >规格:210*158*1层*3包*16提 </p>
+					   </a>
+				    </li>
+				    <li>
+				    	<a href="product_detail.html" data-transition="slidedown" >
+					       <img src="images/product/product_04.png" />
+						   <h6>QF卫生+洁湿巾&nbsp;<span style="color:red">现价:110.00 元/箱</span></h6>
+						   <p >规格:10片/包*120包/箱，分流12*10</p>
+					   </a>
+				    </li>
+				    <li>
+				    	<a href="product_detail.html" data-transition="flip" >
+					       <img src="images/product/product_05.png" />
+						   <h6>清风卷筒纸&nbsp;<span style="color:red">现价:105.00 元/箱</span></h6>
+						   <p >规格:110*100*253段*10*6</p>
+					   </a>
+				    </li>
+				    <li>
+					   <img src="images/product/product_06.png" style="float: left;"></img>
+					   <a href="product_detail.html" data-ajax="false">
+					       <div>
+					           <p style='color:#6c94bc;font-family:黑体;font-size:16'>清风原木纯品110抽盒面&nbsp;<span>现价:125.00 元/箱</span></p>
+					           <br />
+					           <p>
+					               规格:5盒/提*10提/箱
+					           </p>
+					        </div>
+					   </a>
+				    </li>
+				    <li>
+					   <img src="images/product/product_07.png" style="float: left;width:72px;hight:73px"></img>
+					   <a href="product_detail.html" data-ajax="false">
+					       <div>
+					           <p style='color:#6c94bc;font-family:黑体;font-size:16'>清风抽取式卫生纸&nbsp;<span>现价:78.00 元/箱</span></p>
+					           <br />
+					           <p>
+					               规格:80抽*12*8
+					           </p>
+					        </div>
+					   </a>
+				    </li>
+				    <li>
+					   <img src="images/product/product_08.png" style="float: left"></img>
+					   <a href="product_detail.html" data-ajax="false">
+					       <div>
+					           <p style='color:#6c94bc;font-family:黑体;font-size:16'>清风 长卷无芯纸&nbsp;<span>现价:117.00 元/箱</span></p>
+					           <br />
+					           <p>
+					               规格:10卷*8提
+					           </p>
+					        </div>
+					   </a>
+				    </li>
+                </ul>
+			</div><!-- /content -->
+			
+			<div data-role="footer" data-theme="b">
+        		<div align="center" style="font-size: 12">版权所有：<a href='http://www.ghy.com.cn' target='_blank'><sapn style='color:blue'>金红叶集团有限公司</span></a></div>
+        	</div><!-- /footer -->
+		</div>
+	</body>
+</html>
+
+         

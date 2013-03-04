@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>列表页面</title>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<link rel="stylesheet" href="js/jquery.mobile-1.0b2.css" />
+		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script src="js/jquery.mobile-1.0b2.js"></script>
+		<script type="text/javascript">
+		</script>
+	</head>
+	<body>
+		<div data-role="page" data-title="金红叶网上商城">
+			<div data-role="header" data-theme="b">
+				<div align="center">
+				    <sapn style="float: left"><img src="images/ghy.png" style="width: 40;hight:40"></img></sapn>
+				    <div style="padding: 12 0 0 0">金红叶网上商城</div>
+				</div>
+			</div><!-- /header -->
+			
+			<div data-role="content">
+                <ul data-role="listview" data-theme="c" data-dividertheme="d">
+					<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined">订单详情</li>
+					<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+						<div class="ui-btn-inner ui-li" aria-hidden="true">
+							<div style="font-size:12px;padding:5px 0 0 0;font-family:宋体">
+								<table>
+									<tr style="background: #D9D9D9;">
+										<td width=100>产品名称</td>
+										<td width=60>数量</td>
+										<td>金额</td>
+									</tr>
+									<tr>
+										<td width=100>清风原木纯品110抽盒面</td>
+										<td width=60>1箱</td>
+										<td>110.00</td>
+									</tr>
+									<tr style="background: #f4f4f4;">
+										<td width=100>清风抽取式卫生纸 </td>
+										<td width=60>3箱</td>
+										<td>240.00</td>
+									</tr>
+									<tr>
+										<td width=100>清风纸手帕</td>
+										<td width=60>1箱</td>
+										<td>95.00</td>
+									</tr>
+									<tr style="background: #f4f4f4;">
+										<td width=100>清风220抽盒装面纸 </td>
+										<td width=60>3箱</td>
+										<td>189.00</td>
+									</tr>
+									<tr>
+										<td>合计:</td>
+										<td colspan=2><span style="color:red">634.00&nbsp;元</span></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div> <!-- /content -->
+			<a href="index.html" data-role="button" data-inline="true" data-theme="e" class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-e">
+				<span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+					<span class="ui-btn-text"><span style="font-size:12px">继续购物</span></span>
+				</span>
+			</a>
+			<a href="index.html" data-role="button" data-theme="b" data-inline="true" class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-b">
+				<span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+					<span class="ui-btn-text"><span style="font-size:12px">结算</span></span>
+				</span>
+			</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>device orientation webkit</title>
+   <script src="file:///M:/nginx-1.1.5/html/dojov161/dojo/dojo.js" type="text/javascript"></script>
+   <script type="text/javascript">
+   function Wtr(domNode,dur){
+     window.wtr_sn = window.wtr_sn || 1;
+     window.wtr_sn ++;
+     this.id = "wtr_" + window.wtr_sn;
+     dojo.addClass(domNode,this.id);
+     this.domNode = domNode;
+     this.dur = dur;  
+     dojo.create("style",{},document.head,"first");
+     this.styleSheet =   document.styleSheets[0];
+    this.styleSheet.insertRule("." + this.id + "{-webkit-transition: -webkit-transform "+dur+"s;}");
+     this.styleSheet.insertRule("." + this.id + "{display:block}");
+     this.transformState={
+     }     
+    domNode.wtr = this;
+   }
+   </script>
+</head>
+<body>
+</body>

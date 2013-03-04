@@ -1,0 +1,30 @@
+﻿//for jqmwb
+//5/2待办：css3排版，应用嵌套，分栏布局等
+var am9wb={
+  appkey  : "2140610257",
+  statuses:[],
+  statuses_add:function(data){
+    this.statuses = data;
+    data
+  },
+  statuses_get:function(id){
+    var res;
+    $.each(this.statuses, function (i, x) {
+      if(x.id==id){
+        res=x;
+        return false;
+      }
+      if((x.retweeted_status) && (x.retweeted_status.id==id)){
+        res=x.retweeted_status;
+        return false;
+      }
+    });
+    return res
+  }
+};
+
+
+
+
+/*
+*/

@@ -1,0 +1,119 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+  		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>微博网页客户端 By jQuery Mobile </title> 
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+  <link rel="stylesheet"  href="resources/weibo.css" />  
+    <link rel="stylesheet"  href="resources/flow.css" />  
+
+
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="resources/mobileinit.js"></script>  
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  <script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2140610257" type="text/javascript" charset="utf-8"></script>  
+  <script src="resources/weibo.js"></script>  
+  <script src="resources/event.js"></script>  
+  <script src="resources/render.js"></script>    
+  <script src="resources/cmd.js"></script>    
+</head> 
+<body> 
+
+	<div data-role="page" class="type-index" id="pagePostsList">
+		<div data-role="header" data-position="fixed" data-theme="c" >
+		<h1>微博jqm<span class="ui-li-count">12</span></h1>		<a data-icon="refresh" >刷新</a>
+    <a href="#pageSetup" data-icon="gear" data-role="button" data-rel="dialog" data-transition="pop">设定</a>
+    <a href="https://api.weibo.com/oauth2/authorize?client_id=3574169146&response_type=token&redirect_uri=http://am9x.sinaapp.com/jqm/" data-icon="gear" data-role="button" data-rel="dialog" data-transition="pop">授权</a>
+
+	</div><!-- /header -->
+	<div data-role="content">
+  
+    
+		<ul data-role="listview" data-inset="true" id="postsList" >
+              <div id="container">
+              <div id="stage">
+                <div id="shape" class="ring backfaces">
+                </div><!-- /shape -->
+              </div>    <!-- /stage -->
+              </div> <!-- /container -->
+		</ul>
+	</div><!-- /content -->
+	<!-- <div data-role="footer" c       2140610257        lass="footer-docs" data-theme="c"></div> -->
+	
+  
+	</div><!-- /page -->
+
+	<div data-role="page" class="type-index" id="pagePostDetail">
+		<div data-role="header" data-theme="f">
+		<h1>Weibo</h1>
+		<a href="#pagePostsList" data-icon="home" data-direction="reverse">Home</a>
+		<a data-icon="refresh" >Refresh</a>
+	</div><!-- /header -->
+	<div data-role="content">
+  		<ul data-role="listview" data-inset="true" id="postDetail" >
+      </ul>
+  
+  	</div><!-- /content -->
+  	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>&copy; 2011-12 The jQuery Foundation</p>
+	</div>
+	</div><!-- /page -->
+  
+  <div data-role="page"  id="pageSetup">
+		<div data-role="header" data-theme="e">
+		<h1>微博jqm</h1>
+	</div><!-- /header -->
+	<div data-role="content">
+   
+
+
+       <div data-role="fieldcontain">
+      <label for="fld_hint">提示:</label>
+      <select name="slider" id="fld_hint" data-role="slider" >
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select> 
+    </div>
+   
+   
+      <div data-role="fieldcontain">
+				<label for="slider">刷新间隔:</label>
+			 	<input type="range" name="slider" id="fld_refreshHintInterval" value="5" min="0.1" max="30" data-highlight="true"  />
+			</div>
+    <div data-role="fieldcontain">
+      <label for="fld_roll">滚动最新:</label>
+      <select name="slider" id="fld_roll" data-role="slider" >
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select> 
+    </div>  
+    
+    		<div data-role="collapsible" data-collapsed="false" data-theme="e" data-content-theme="c">
+			<h3>I'm a header</h3>
+			<p>I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.</p>
+			
+			<div data-role="collapsible" data-theme="c" data-content-theme="c">
+				<h3>I'm a nested collapsible with a child collapsible</h3>
+				<p>I'm a child collapsible.</p>
+					<div data-role="collapsible" data-theme="d" data-content-theme="d">
+						<h3>Nested inside again.</h3>
+						<p>Three levels deep now.</p>
+					</div><!-- /section 1A -->
+			</div><!-- /section 1 -->
+
+		</div>
+    
+    
+    
+  	</div><!-- /content -->    
+    <div data-role="footer" class="footer-docs" data-theme="e">
+<a href="#pagePostsList" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back</a>
+	</div>
+	</div><!-- /page -->
+  
+	</body>
+	</html>

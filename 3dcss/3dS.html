@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Morphing Power Cubes</title>
+        <style type="text/css" media="screen">
+            body {
+                background-color: black;
+                background-image: -webkit-gradient(radial, 50% 500, 1, 50% 500, 400, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0)));
+                background-repeat: no-repeat;
+            }
+            #perspective {
+                width: 100%;
+                height: 700px;
+                -webkit-perspective: 800;
+                /* For compatibility with iPhone 3.0, we leave off the units here */
+                -webkit-perspective-origin: 50% 225px;
+            }
+            #stage3d {
+                width: 100%;
+                height: 100%;
+                -webkit-transition: -webkit-transform 8s;
+                -webkit-transform-style: preserve-3d;
+            }
+            #page {
+                background-image:url('biaoc.png');
+                position: relative;
+                margin: 0 auto;
+                height: 800px;
+                width: 800px;
+                -webkit-transform-style: preserve-3d;
+            }
+            
+            .borad {
+              -webkit-transform: rotateX(90deg) rotateZ(40deg);
+            }
+             .borad    .card{
+              -webkit-transform: rotateX(90deg);
+            }
+            .card {
+                background-image:url('1628220_125235001386_2.jpg');
+                position: absolute;
+                height: 200px; width: 200px;
+                border: 1px solid white;
+                -webkit-border-radius: 12px;
+                -webkit-box-sizing: border-box;
+                -webkit-transition: -webkit-transform 2s, opacity 0.6;
+                -webkit-backface-visibility: visible;
+                -webkit-transform: scale(1, 0.01);
+            }
+
+
+            .spinY {
+                -webkit-animation: spin 15s infinite linear;
+                   -webkit-transform-style: preserve-3d;
+            }
+            @-webkit-keyframes spin {
+                from {
+                    -webkit-transform: rotateY(0);
+                }
+                to {
+                    -webkit-transform: rotateY(-360deg);
+                }
+            }
+            .spinX {
+                -webkit-animation: spinX 15s infinite linear;
+                   -webkit-transform-style: preserve-3d;
+            }
+            @-webkit-keyframes spinX {
+                from {
+                    -webkit-transform: rotateX(0);
+                }
+                to {
+                    -webkit-transform: rotateX(-360deg);
+                }
+            }
+            
+
+            /* ---------- cube styles ------------- */
+            .cube > .one {
+                opacity: 0.5;
+                -webkit-transform: rotateX(90deg) translateZ(100px);
+            }
+            .cube > .front {
+                opacity: 0.5;
+                -webkit-transform: translateZ(130px);
+            }
+            .cube > .right {
+                opacity: 0.5;
+                -webkit-transform: rotateY(90deg) translateZ(100px);
+            }
+            .cube > .back {
+                opacity: 0.5;
+                -webkit-transform: rotateY(180deg) translateZ(130px);
+            }
+            .cube > .left {
+                opacity: 0.5;
+                -webkit-transform: rotateY(-90deg) translateZ(100px);
+            }
+            .cube > .six {
+                opacity: 0.5;
+                -webkit-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="controls">
+            <p>shape =平面，container=提供透视，stage=提供3D</p>
+        </div>
+        <div id="perspective">
+            <div id="stage3d " class="spinY_">
+                <div id="page" class="borad1 cube1 backfaces">
+                    <div class="card one">1</div>
+                    <div class="card front">front</div>
+                    <div class="card right">right</div>
+                    <div class="card back">back</div>
+                    <div class="card left">left</div>
+                    <div class="card six">6</div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

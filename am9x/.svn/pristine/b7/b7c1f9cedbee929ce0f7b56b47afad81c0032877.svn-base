@@ -1,0 +1,38 @@
+﻿function cmd_xhrloadList(){
+    WB2.anyWhere(function(W){
+        var qo=    {
+      source  : am9wb.appkey,
+      count:10
+    };
+    if(am9wb.since)qo.since_id=am9wb.since;
+    console.log(qo);
+    W.parseCMD("/statuses/friends_timeline.json", 
+      function(data){
+        console.log("callbackW",data);
+        if(data.statuses.length>0){
+          am9wb.statuses_add(data.statuses);
+          $('#pagePostsList [data-icon="refresh"] .ui-btn-text').text("刷新");
+          //paintPostsList(data.statuses)
+        }
+      },
+      qo,
+      {
+          method: 'get'
+      }
+    )
+  })
+}
+function cmd_xhrloadStart(){
+  if (am9wb.runtime.xhrload_handle) clearInterval(am9wb.runtime.xhrload_handle);
+  am9wb.runtime.xhrload_handle = setInterval(cmd_xhrloadList,10*1000);
+}
+function cmd_uishowStart(){
+  if (am9wb.runtime.uishow_handle) clearInterval(am9wb.runtime.uishow_handle);
+  am9wb.runtime.uishow_handle = setInterval(cmd_uishowNext,2*1000);
+}
+function cmd_uishowNext(){
+  //console.log(am9wb.statuses,"cmd_uishowNext",am9wb.runtime.uishowid);
+  var post = am9wb.statuses_nextPost();
+  //console.log(post);
+  if(post) paintPost(post);
+}

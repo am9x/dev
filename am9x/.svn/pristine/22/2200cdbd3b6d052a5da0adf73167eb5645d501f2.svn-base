@@ -1,0 +1,27 @@
+﻿$(document).ready(function (x) {
+$("#btnTest").live("click",function(e,v){
+  alert("btnTest"); 
+  var ctx=$("#myCanvas")[0].getContext('2d')
+  ctx.arc(19,19,5,0,4,false);
+   ctx.stroke();
+})
+
+
+
+  var elem = $("#myCanvas")[0];
+   var ctx = elem.getContext('2d');
+  ctx.fillStyle = '#00f';
+    $("#myCanvas").live("vmousedown",function(x,e){
+  console.log("vmousedown",x,e,this)
+  })
+  $("#myCanvas").live("vmouseup",function(evt,v){
+    console.log("vmouseup",evt,v,this);
+      ctx.fillStyle = '#00f';
+      ctx.globalAlpha=0.5;
+      ctx.strokeStyle = "#0f0";
+    ctx.arc(20, 20, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+    ctx.closePath();
+    console.log(ctx)
+  })
+})

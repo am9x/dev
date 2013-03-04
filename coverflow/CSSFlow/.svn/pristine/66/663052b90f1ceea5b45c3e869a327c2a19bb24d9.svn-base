@@ -1,0 +1,233 @@
+﻿
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>device orientation webkit</title>
+   <script src="../dojov161/dojo/dojo.js" type="text/javascript"></script>
+   		<link rel="stylesheet" href="wtr/wtr.css" />
+		<script type="text/javascript" src="wtr/wtr.js"></script>
+   
+   <script type="text/javascript">  
+  dojo.addOnLoad(function(){
+    var w_hash = {};  
+    window.wh= w_hash;
+    Wtr.prototype.onCreate = function(){
+      console.log("onCreate",this.id,this.name);
+      w_hash[this.id] = this;
+      var select = dojo.byId("idlist");
+      for(var i=0;select.options.length>0;i++){ select.remove(0);  }
+      for (x in w_hash){
+        var w=w_hash[x];
+        console.log(w,x);
+        dojo.create("option",{innerHTML:w.title,value:w.id,selected:true},select,"last")
+      }
+      this.onSelect();
+    }
+    Wtr.prototype.onRemove = function(){
+      console.log("onRemove",this.id,this.name);
+     // w_hash[this.id] = this;
+    }
+    Wtr.prototype.onSelect = function(){
+      var _self = this;
+      console.log("_onSelect prototype",this.id);
+      dojo.query(".actViewDiv").forEach(function(x){ dojo.removeClass(x,"actViewDiv") });
+      dojo.addClass(this.viewDiv,"actViewDiv");
+      fmsetcur(this);
+    }
+    function fmsetcur(_self){
+      dojo.byId("id").value = _self.id;
+      dojo.byId("transformState").value = dojo.toJson(_self.transformState).replace(/,/g,",\n");
+      //styleState
+      dojo.byId("styleState").value = dojo.toJson(_self.styleState).replace(/,/g,",\n");
+      if(dojo.fieldToObject("idlist")!=_self.id){
+        dojo.query("#idlist option").forEach(function(x){x.selected=(x.value==_self.id);})
+      }
+    }
+    var l1=dojo.byId("l1");
+    var base=new Wtr(l1,"Base");
+    base.render({
+"translateX":"0px",
+"translateY":"0px",
+"translateZ":"0px",
+"rotateX":"60deg",
+"rotateY":"0deg",
+"rotateZ":"-20deg"
+    });
+    base.onSelect();
+    
+    dojo.connect(dojo.byId("accept"),"onclick",function(){
+      var widget = w_hash[dojo.byId("id").value];
+      var transformState = dojo.fromJson(dojo.byId("transformState").value);
+      var styleState = dojo.fromJson(dojo.byId("styleState").value);
+      widget.render(transformState,styleState);
+    })
+    dojo.connect(dojo.byId("btnNew"),"onclick",function(){
+     // var base = w_hash[dojo.byId("id").value]; 
+      var l2 = dojo.create("div",{},base.viewDiv,"last");
+      var title=prompt("input new widget title","title");
+      var w2 = new Wtr(l2,title);
+    });
+    dojo.connect(dojo.byId("background"),"onclick",function(){
+      var widget = w_hash[dojo.byId("id").value];
+      var url = prompt("background","w.jpg")
+      dojo.style(widget.viewDiv,"backgroundImage","url("+url+")")
+    });
+    dojo.connect(dojo.byId("size"),"onclick",function(){
+      var widget = w_hash[dojo.byId("id").value];
+      var size = prompt("size","320px*680px").split("*")
+      dojo.style(widget.viewDiv,"width",size[0]);
+      dojo.style(widget.viewDiv,"height",size[1]);      
+    });
+    dojo.connect(dojo.byId("export"),"onclick",function(){
+      var exp=[];
+       for (x in w_hash){
+        var w=w_hash[x];
+        var entry={"title":w.title,"transformState":w.transformState,"styleState":w.styleState}
+        exp.push(entry);
+       }
+       prompt("export",dojo.toJson(exp));
+    });
+    dojo.connect(dojo.byId("import"),"onclick",function(){
+      var exp=  dojo.fromJson(prompt("Import",'[{"title":"Base","transformState":{"translateX":"-60px","translateY":"220px","translateZ":"630px","rotateX":"90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(z.jpg)"}},{"title":"wall","transformState":{"translateX":"20px","translateY":"-150px","translateZ":"140px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(b.jpg)","height":"300px"}},{"title":"cat","transformState":{"translateX":"460px","translateY":"-60px","translateZ":"330px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(cat3.gif)","width":"230px","height":"100px"}},{"title":"man","transformState":{"translateX":"1000px","translateY":"420px","translateZ":"80px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(1.gif)","width":"180px","height":"180px"}},{"title":"t1","transformState":{"translateX":"460px","translateY":"600px","translateZ":"50px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(14.gif)","width":"425px","height":"106px"}},{"title":"t2","transformState":{"translateX":"220px","translateY":"560px","translateZ":"70px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(34.gif)","width":"448px","height":"209px"}},{"title":"t3","transformState":{"translateX":"190px","translateY":"660px","translateZ":"180px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(111.gif)","width":"158px","height":"113px"}},{"title":"W","transformState":{"translateX":"180px","translateY":"640px","translateZ":"120px","rotateX":"0deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(w.jpg)","width":"160px","height":"180px"}},{"title":"q","transformState":{"translateX":"420px","translateY":"-40px","translateZ":"60px","rotateX":"-90deg","rotateY":"0deg","rotateZ":"0deg"},"styleState":{"background-image":"url(q.gif)","width":"283px","height":"141px"}}]'));
+      dojo.forEach(exp,function(x){
+        var l2 = dojo.create("div",{},base.viewDiv,"last"); 
+        if (x.title == "Base"){
+          var w2=base;
+        }
+        else{
+          var w2 = new Wtr(l2,x.title);
+        }
+        w2.render(x.transformState,x.styleState);
+      })
+    });
+    dojo.connect(dojo.byId("idlist"),"onchange",function(){
+      var id=dojo.fieldToObject("idlist");
+      var w=w_hash[id];
+      console.log(id,w,"OnChange");
+      w.onSelect();
+    })
+    var step = "20deg";
+    var step2 = "20px";
+
+
+    dojo.connect(document.body,"onkeypress",function(x){
+      console.log(x.keyIdentifier,x.keyCode,x);
+     var id=dojo.fieldToObject("idlist");
+      var w=w_hash[id];
+      switch(x.keyIdentifier){
+      case "Right":
+        if(x.shiftKey) w.transform("translateX",step2)
+        else w.transform("rotateY",step);
+        break
+      case "Left":
+        if(x.shiftKey) w.transform("translateX","-"+step2)
+        else w.transform("rotateY","-"+step);
+        break
+      case "Up":
+        if(x.shiftKey) w.transform("translateY","-"+step2)
+        else w.transform("rotateX",step);
+                break
+      case "Down":
+        if(x.shiftKey) w.transform("translateY",step2)
+        else w.transform("rotateX", "-"+step);
+                break
+      case "PageUp":
+        if(x.shiftKey) w.transform("translateZ",step2)
+        else w.transform("rotateZ",step);
+        break           
+      case "PageDown":
+        if(x.shiftKey) w.transform("translateZ","-"+step2)
+        else w.transform("rotateZ","-"+step);
+        break     
+      default:
+    }
+   }) 
+  })
+   </script>
+
+  <style type="text/css" media="screen">
+  html{      height: 100%;}
+    body {
+      background-color: grey;
+      color: white;
+      font-family: 'Lucida Grande', Verdana, Arial;
+       height: 100%;
+        padding:0px;margin:0px;
+        -web-box-sizing:border-box;
+    }
+  #main{
+  width: 100%;
+      height: 100%;
+    display: -webkit-box;
+  }
+#right{
+width: 15%;
+      border: 1px solid grey;
+      font-size:20px;
+      position:absolute; z-index:3
+}
+    #container {
+      border: 1px solid white;
+      margin:0 2%;
+      width: 80%;
+      height: 100%;
+      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 50%;      
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+      -webkit-transition: -webkit-transform 2s;
+      -webkit-transform-style: preserve-3d;
+            -webkit-transform:  translateZ(-800px) ;
+    }
+  .actViewDiv{-webkit-box-shadow:0 0 15px blue;opacity: 1!important}
+  .actVi_ewDiv{-webkit-border-image:url(b.png)1 1 1 1 ;opacity: 1!important}
+   .a_ctViewDiv { border:15px solid blue; opacity: 1!important}
+    
+  </style>
+
+</head>
+<body>
+<div id="main">
+<div id="left">
+</div>
+  <div id="container">
+    <div id="stage" >
+      <div id="l1"></div>
+    </div>
+  </div>
+  <div id="right">
+<form id="fm_control">
+<input type="radio" value="rotate" checked name="trtype" />rotate<br>
+<input type="radio" value="translate" name="trtype" /> translate<hr>
+
+<a id="btnRight" >Right</a>
+<a id="btnLeft" >Left</a><br>
+<a id="btnUp" >Up</a>
+<a id="btnDown" >Down</a><hr>
+
+<select name="idlist" id="idlist">
+
+</select>
+<input id="id"></input>
+<hr>transformState:
+<textarea id="transformState" style="width:14em;height:12em"> </textarea>
+<hr>styleState:
+<textarea id="styleState" style="width:14em;height:12em"> </textarea>
+<a id="btnNew" >New</a>  
+<a id="accept">Accept</a>
+<a id="background">Background</a>
+<a id="size">Size</a><hr>
+<a id="export">Export</a>
+<a id="import">Import</a>
+</form>
+</div>
+  </div>
+</div>  
+</body>
+</html>

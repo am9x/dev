@@ -1,0 +1,41 @@
+﻿$(document).ready(function (x) {
+var mouseStatus=false;
+$("#btnTest").live("click",function(e,v){
+  alert("btnTest"); 
+  var ctx=$("#myCanvas")[0].getContext('2d')
+  ctx.arc(19,19,5,0,4,false);
+   ctx.stroke();
+})
+
+
+
+  var elem = $("#myCanvas")[0];
+   var ctx = elem.getContext('2d');
+  ctx.strokeStyle = "#070";
+  $("#myCanvas").live("vmousedown",function(evt,e){
+    //touchstart
+    mouseStatus = true;
+  console.log("vmousedown",x,e,this)
+      ctx.arc(evt.offsetX, evt.offsetY, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+    ctx.closePath();
+  })
+  $("#myCanvas").live("vmouseup",function(evt,v){
+    console.log("vmouseup",evt,v,this);
+      mouseStatus = false;
+    ctx.arc(20, 20, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+    ctx.closePath();
+    console.dir(evt)
+  })
+    $("#myCanvas").live("vmousemove",function(evt,v){
+      console.log("touchstart",evt,v,this);
+      if(mouseStatus){
+        ctx.arc(evt.pageX, evt.pageY, 10, 0,Math.PI*2,false);
+        ctx.stroke();
+        ctx.closePath();
+      }
+      evt.preventDefault();
+    console.dir(evt)
+  })
+})

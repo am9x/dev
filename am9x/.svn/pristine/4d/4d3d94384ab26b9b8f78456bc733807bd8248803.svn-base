@@ -1,0 +1,42 @@
+﻿function loadbi(_uid,xcallback){//ids
+    WB2.anyWhere(function(W){
+    W.parseCMD("/friendships/friends/bilateral/ids.json", 
+      function(data){
+        console.log("callbackW",data);
+        xcallback(data);
+      //  am9wb.statuses_add(data.statuses);
+      //  paintPostsList(am9wb.statuses)
+      },
+      {
+        source  : "2140610257" ,
+        uid:_uid,
+        count:400
+      },
+      {
+          method: 'get'
+      }
+    )
+  })
+}
+function paint(dom,ids){
+//console.log(dom,users);
+console.log(">>>paint",dom.uid,dom)
+  var html=[];//["<ul>"];
+   $.each(users,function(i,x){
+  //  console.log(i,x);
+    html.push('<div class=li uid='+x+'  >'+x+'</div>');
+   })
+   //html.push("</ul>");
+   $(html.join(" ")).appendTo($(dom))
+}
+
+$(document).ready(function () {
+  $(".main").live("click",function(e){
+    var dom = e.target;
+   loadbi($(dom).attr("uid"),function(data){
+     paint(dom,data.ids)
+   });
+  console.log(this,e,e.target);
+  });
+     // loadbi($(".main")[0])
+})

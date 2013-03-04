@@ -1,0 +1,14 @@
+﻿$(document).ready(function (x) {
+
+  var elem = $("#myCanvas")[0];
+   var ctx = elem.getContext('2d');
+  ctx.fillStyle = '#00f';
+    $("#myCanvas").live("vmousedown",function(x,e){
+  console.log(x,e,this)
+  })
+  $("#myCanvas").live("vmouseup",function(evt,v){
+    console.log("touchstart",evt,v,this);
+    ctx.arc(evt.offsetX, evt.offsetY, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+  })
+})

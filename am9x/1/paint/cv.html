@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas Primer - Example: Using canvas</title>
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js" type="text/javascript"></script>
+    <script type="text/javascript"><!--
+dojo.addOnLoad(function () {
+  // Get the canvas element.
+  var elem = document.getElementById('myCanvas');
+
+  if (!elem || !elem.getContext) {
+    return;
+  }
+
+  // Get the canvas 2d context.
+  var ctx = elem.getContext('2d');
+  ctx.fillStyle = '#00f';
+  if (!ctx) {
+    return;
+  }
+
+dojo.connect(elem,"onmouseup",function(evt){
+
+ctx.arc(evt.offsetX, evt.offsetY, 3, 0,Math.PI*2,false);
+ctx.stroke();
+  //context
+//  console.log("onMouseOver",evt)
+})
+
+  // Now you are done! Let's draw a blue rectangle.
+
+//  context.fillRect(0, 0, 150, 100);
+
+});
+    // --></script>
+  </head>
+  <body>
+    <p><canvas id="myCanvas" width="500" height="300">Your browser does not have 
+    support for Canvas.  You should see:
+    <span style="display:block;width:150px;height:100px;background:#00f">&nbsp;</span></canvas></p> 
+  </body>
+</html>

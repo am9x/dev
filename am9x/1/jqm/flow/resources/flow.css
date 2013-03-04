@@ -1,0 +1,81 @@
+
+ #container {
+      width: 100%;
+      height: 700px;
+      margin:auto;
+      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 250px;
+	  background:#202020;
+      background-image: -webkit-radial-gradient(#303040,#101010);
+	      	          -webkit-box-shadow:8px 10px 10px rgba(10,10,10,0.6);
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+	        display:inline-block;
+      -webkit-transition: -webkit-transform 3s;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform : translateZ(-600px);
+    }
+    
+    #shape {
+      position: relative;
+      top: 60px;
+      margin: 0 auto;
+      
+      width: 480px;
+      height: 320px;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    
+    .plane {
+
+      position: absolute;
+      visibility:visible;
+      width: 480px;
+      height: 320px;
+	  padding:5px;
+      border: 1px solid white;
+      -webkit-border-radius: 12px;
+      -webkit-box-sizing: border-box;
+		background-repeat:no-repeat;        background-position:bottom center;
+		-_webkit-box-reflect: below 10px -webkit-linear-gradient(transparent,transparent 30%,rgba(255,255,255,0.1) 70%,rgba(255,255,255,0.4));
+		-webkit-box-shadow:0 0 7px rgba(255,192,192,0.8);
+      -webkit-transition: -webkit-transform 2s;
+      -webkit-backface-visibility: hidden;
+    }
+	.plane{
+		background-color: rgba(255, 222, 222, 0.8);
+		}
+    #shape.backfaces  {
+      -webkit-backface-visibility: v_isible;
+    }
+    
+
+
+
+
+     /* ---------- ring styles ------------- */
+	 .plane {  -webkit-transform: translateZ(500px)  scale(1) ;          background-color: rgba(255, 255, 222, 1);		             }
+.ring > .p0 {  -webkit-transform: translateZ(700px)  scale(1) ;          background-color: rgba(255, 255, 222, 1);		             }
+.ring > .p1 { -webkit-transform: rotateY(-63deg) translateX(447px);     opacity: 0.9;}
+.ring > .p-1 {-webkit-transform: rotateY(63deg) translateX(-447px);     opacity: 0.9;}
+.ring > .p2 { -webkit-transform: rotateY(-59deg) translateX(466px);     opacity: 0.8;}
+.ring > .p-2 {-webkit-transform: rotateY(59deg) translateX(-466px);     opacity: 0.8;}
+.ring > .p3 { -webkit-transform: rotateY(-55deg) translateX(488px);     opacity: 0.7;}
+.ring > .p-3 {-webkit-transform: rotateY(55deg) translateX(-488px);     opacity: 0.7;}
+.ring > .p4 {  -webkit-transform: rotateY(-51deg) translateX(512px); opacity: 0.6;}
+.ring > .p-4 {-webkit-transform: rotateY(51deg) translateX(-512px);  opacity: 0.6;}
+.ring > .p5 {-webkit-transform: rotateY(-48deg) translateX(538px);  opacity: 0.5;}
+.ring > .p-5 {-webkit-transform: rotateY(48deg) translateX(-538px); opacity: 0.5;}
+.ring > .p6 {-webkit-transform: rotateY(-45deg) translateX(566px); opacity: 0.4;}
+.ring > .p-6 {-webkit-transform: rotateY(45deg) translateX(-566px); opacity: 0.4;}
+.ring > .p7 {-webkit-transform: rotateY(-42deg) translateX(595px); opacity: 0.3;}
+.ring > .p-7 {-webkit-transform: rotateY(42deg) translateX(-595px); opacity: 0.3;}
+.ring > .p8 {-webkit-transform: rotateY(-40deg) translateX(625px); opacity: 0.2;}
+.ring > .p-8 {-webkit-transform: rotateY(40deg) translateX(-625px); opacity: 0.2;}
+
+.ring > .plane{
+
+    }

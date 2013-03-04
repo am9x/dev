@@ -1,0 +1,77 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+  		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>微博网页客户端 By jQuery Mobile </title> 
+	<link rel="stylesheet"  href="http://lib.sinaapp.com/js/jquery-mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+  <link rel="stylesheet"  href="resources/weibo.css" />  
+    <link rel="stylesheet"  href="resources/flow.css" />  
+
+
+	<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+  <script src="resources/mobileinit.js"></script>  
+	<script src="http://lib.sinaapp.com/js/jquery-mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  <script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3574169146" type="text/javascript" charset="utf-8"></script>  
+  <script src="resources/weibo.js"></script>  
+  <script src="resources/event.js"></script>  
+  <script src="resources/render.js"></script>    
+  <script src="resources/cmd.js"></script>    
+</head> 
+<body> 
+
+	<div data-role="page" class="type-index" id="pagePostsList">
+		<div data-role="header" data-position="fixed" data-theme="c" >
+		<h1>微博jqm<span class="ui-li-count">12</span></h1>		<a data-icon="refresh" >刷新</a>
+  
+    <a href="https://api.weibo.com/oauth2/authorize?client_id=3574169146&response_type=token&redirect_uri=http://am9x.sinaapp.com/jqm/flow" data-icon="gear" data-role="button" data-rel="dialog" data-transition="pop">授权</a>
+
+	</div><!-- /header -->
+	<div data-role="content">
+  <ul data-role="listview" data-inset="true" id="postsList" >
+              <div id="container">
+              <div id="stage">
+                <div id="shape" class="ring backfaces">
+                </div><!-- /shape -->
+              </div>    <!-- /stage -->
+              </div> <!-- /container -->
+		</ul>
+	</div><!-- /content -->
+	<!-- <div data-role="footer" c       2140610257        lass="footer-docs" data-theme="c"></div> -->
+	
+  
+	</div><!-- /page -->
+
+	<div data-role="page" class="type-index" id="pagePostDetail">
+		<div data-role="header" data-theme="f">
+		<h1>Weibo</h1>
+		<a href="#pagePostsList" data-icon="home" data-direction="reverse">Home</a>
+		<a data-icon="refresh" >Refresh</a>
+	</div><!-- /header -->
+	<div data-role="content">
+  		<ul data-role="listview" data-inset="true" id="postDetail" >
+      </ul>
+  
+  	</div><!-- /content -->
+  	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>&copy; </p>
+	</div>
+	</div><!-- /page -->
+  
+  <div data-role="page"  id="pageLogin">
+		<div data-role="header" data-theme="e">
+		<h1>微博jqm</h1>
+	</div><!-- /header -->
+	<div data-role="content">
+   <iframe src="https://api.weibo.com/oauth2/authorize?client_id=3574169146&response_type=token&redirect_uri=http://am9x.sinaapp.com/redirect" width=600 height=600></iframe>
+  	</div><!-- /content -->    
+    <div data-role="footer" class="footer-docs" data-theme="e">
+
+	</div>
+	</div><!-- /page -->
+  
+	</body>
+	</html>

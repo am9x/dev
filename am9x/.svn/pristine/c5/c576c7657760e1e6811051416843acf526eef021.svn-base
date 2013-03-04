@@ -1,0 +1,65 @@
+﻿
+$(document).ready(function (x) {
+  imgdata = [];
+  var elem = $("#myCanvas")[0];
+   ctx = elem.getContext('2d');
+    var elem2 = $("#myCanvas2")[0];
+  var ctx2 = elem2.getContext('2d');
+  
+  $("#imgcopy").live("click",function(e,v){
+  ctx2.clearRect(0,0,ctx2.canvas.width,ctx2.canvas.height);
+    var dataURL = elem.toDataURL("image/png");
+    imageCopy(ctx2,dataURL);
+  })
+  
+var mouseStatus=false;
+var opx;
+var opy;
+
+  ctx.strokeStyle = "rgba(0,127,0,0.3)";
+  ctx.lineWidth=5;
+  $("#myCanvas").live("vmousedown",function(evt,e){
+    //touchstart
+    mouseStatus = true;
+    opx = evt.pageX;
+    opy = evt.pageY;
+  console.log("vmousedown",x,e,this)
+  ctx.moveTo(evt.pageX, evt.pageY);
+   ctx.beginPath()
+      ctx.arc(evt.pageX, evt.pageY, 5, 0,Math.PI*2,false);
+    ctx.stroke();
+    ctx.closePath();
+  })
+  $("#myCanvas").live("vmouseup",function(evt,v){
+    console.log("vmouseup",evt,v,this);
+      mouseStatus = false;
+       ctx.beginPath()
+    ctx.arc(evt.pageX, evt.pageY, 5, 0,Math.PI*2,false);
+       ctx.closePath();
+    ctx.stroke();
+
+
+  })
+  var mx=0
+  
+    $("#myCanvas").live("vmousemove",function(evt,v){
+
+     // console.log("touchstart",evt,v,this);
+      if(mouseStatus){
+        mx++;
+        if(mx>2){
+          mx=0
+      ctx.beginPath()
+              ctx.moveTo(opx, opy);
+          ctx.lineTo(evt.pageX, evt.pageY);
+opx =evt.pageX;
+opy =evt.pageY;
+         ctx.closePath();
+          ctx.stroke();
+       
+           evt.preventDefault();
+        }
+     }
+    //console.dir(evt)
+  })
+})

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery实现分步骤网站页面切换的效果 - 分享JavaScript-sharejs.com</title>
+<meta name="Copyright" content="JavaScript分享网 http://www.sharejs.com/" />
+<meta name="description" content="jQuery实现分步骤网站页面切换的效果,JavaScript分享网" />
+<meta content="JavaScript,分享,JavaScript代码,Ajax" name="keywords" />
+
+<link rel="stylesheet" type="text/css" href="LeagueGothic/fontface.css" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+
+<body>
+
+<div class="step" id="step1">
+    <div class="section">
+        <h1>Step 1</h1>
+        <h2>Paste a CSV Formatted List of All The Contestants</h2>
+        
+        <textarea>Contestant Name, email@example.com
+Contestant2 Name, email@example.com
+Contestant3, anotheremail@example.com</textarea>
+		<a href="#" class="button">Next</a>
+    </div>
+</div>
+
+<div class="step" id="step2">
+    <div class="section">
+        <h1>Step 2</h1>
+        <h2>Paste a CSV Formatted List of All The Prizes</h2>
+        <textarea>Prize Name, 2
+Another Prize, 1</textarea>
+		<a href="#" class="button back">Back</a>
+		<a href="#" class="button finish">Finish!</a>
+    </div>
+</div>
+
+<div class="step" id="step3">
+    <div class="section">
+        <h1>Step 3</h1>
+        <h2>welcome to sharejs.com</h2>
+        <div class="results"></div>
+        <a href="#" class="button again">Again</a>
+    </div>
+</div>
+
+
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="md5.js"></script>
+<script src="script.js"></script>
+
+<br><br>
+
+</body>
+</html>

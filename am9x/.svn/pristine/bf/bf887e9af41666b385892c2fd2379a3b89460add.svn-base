@@ -1,0 +1,68 @@
+﻿//for jqmwb
+//5/2待办：css3排版，应用嵌套，分栏布局等
+var am9wb={
+  appkey  : "2140610257",
+  parseCMD : function(sUri, oCallBack, oArgs, oOpts){
+    var sRes = Ext.Object.toQueryString(oArgs)+"&"+Ext.Object.toQueryString(oOpts);
+   // alert(sRes);
+    sRes = "https://api.weibo.com/2"+sUri+"?&" + sRes +"&source=2140610257"+     "&_cache_time=0&__rnd="+Math.random();
+    console.log("===URL===",sRes)
+    return sRes   
+    //"/data"+sUri;//sRes;
+  }
+};
+/*
+<li><a href="index.html">
+				<img src="images/album-hc.jpg" />
+				<h3>Warning</h3>
+				<p>Hot Chip</p>
+			</a><a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album
+			</a></li>
+*/
+function getPostHtml(post,isRepost){
+  var x=post;
+  console.log("==x",x)
+    var html=[
+      (isRepost)?'<div class="repostAvatar"></div>':'<div class="avatar"  style=background-image:url("'+(x.user.profile_image_url||x.user.avatar_large)+'") ></div>',
+      '<div class="coner_rt">',
+        (x.reposts_count)?('转发:'+x.reposts_count):"",
+        (x.comments_count)?(' 评论:'+x.comments_count):"",
+      '</div>',
+      '<div class="flex">',
+        '<h1>'+x.user.name+':  </h1>',
+        '<div class="text">'+x.text+'</div>',
+        '<footer>'+ x.created_at+'来自:'+x.source+'</footer>',
+      '</div>',
+      (x.thumbnail_pic)?'<div class=right><div class="postpic" style=background-image:url("'+x.thumbnail_pic+'")></div></div>':""
+      ].join("");
+    html =  '<div class="'+ ((isRepost)?"repost":"post") +'">'+html+'</div>'+( (x.retweeted_status)?getPostHtml(x.retweeted_status,true):"");
+    console.log("getPostHtml",html)
+      return html;
+}
+function paintPostsList(statuses){
+
+  var postsList = $("#postsList")
+  $.each(statuses, function (i, x) {
+  var html=getPostHtml(x)
+  console.log("html",html)
+    $('<li>'+html+'</li>').appendTo(postsList);
+  })
+  postsList.listview('refresh');
+}
+/*
+$(document).ready(function (x) {
+   WB2.anyWhere(function(W){
+    W.parseCMD("/statuses/friends_timeline.json", function(data){
+      console.log("callbackW",data);
+      paintPostsList(data.statuses)
+      },{
+                              source  : "2140610257" ,
+                                count:10
+                              },{
+                                method: 'get'
+                              }
+                            )
+   })
+
+})
+*/

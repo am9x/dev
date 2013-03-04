@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+    
+    <head>
+        <style type="text/css">
+            body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js"
+        djConfig="parseOnLoad: true">
+        </script>
+        <script type="text/javascript">
+            dojo.require("dijit.InlineEditBox");
+            dojo.require("dijit.form.NumberSpinner");
+                       dojo.require("dijit.form.FilteringSelect");
+        </script>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"
+        />
+    </head>
+    
+    <body class=" claro ">
+     <select dojoType="dijit.form.FilteringSelect" id="fruit" name="fruit">
+            <option value="AP">
+                Apples
+            </option>
+            <option value="OR" selected>
+                Oranges
+            </option>
+            <option value="PE">
+                Pears
+            </option>
+        </select>
+    
+        <span dojoType="dijit.InlineEditBox" editor="dijit.form.FilteringSelect"
+        editorParams="{constraints: {places:0} }" width="70px" title="quantity">
+            15
+        </span>
+
+    </body>
+
+</html>

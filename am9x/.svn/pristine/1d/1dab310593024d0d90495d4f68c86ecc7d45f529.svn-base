@@ -1,0 +1,8 @@
+﻿$(document).bind("mobileinit", function(e){
+  //apply overrides here
+  console.log("mobileinit",this,e)
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.allowCrossDomainPages = true;
+
+  console.log("$.mobile.hashListeningEnable",$.mobile.hashListeningEnable)
+});

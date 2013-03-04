@@ -1,0 +1,53 @@
+﻿function getPostHtml(post,isRepost){
+  var x=post;
+  //console.log("==x",x)
+    var html=[
+      (isRepost)?'<div class="repostAvatar"></div>':'<div class="avatar"  style=background-image:url("'+(x.user.profile_image_url||x.user.avatar_large)+'") ></div>',
+      '<div class="coner_rt ">',
+        (x.reposts_count)?('转发:'+x.reposts_count):"",
+        (x.comments_count)?(' 评论:'+x.comments_count):"",
+      '</div>',
+      '<div class="flex" id="post_'+x.id+'">',
+        '<h1>'+x.user.name+':  </h1>',
+        '<div class="text">'+x.text+'</div>',
+        '<footer>'+ x.created_at+'来自:'+x.source+'</footer>',
+      '</div>',
+      (x.thumbnail_pic)?'<div class=right><div class="postpic" style=background-image:url("'+x.thumbnail_pic+'")></div></div>':""
+      ].join("");
+    html =  '<div class="'+ ((isRepost)?"repost":"post") +'">'+html+'</div>'+( (x.retweeted_status)?getPostHtml(x.retweeted_status,true):"");
+    //console.log("getPostHtml",html)
+      return html;
+}
+function getPostHtml2(post,isRepost){
+  var x=post;
+  //console.log("==x",x)
+    var html=[
+      (isRepost)?'<div class="repostAvatar"></div>':'<div class="avatar"  style=background-image:url("'+(x.user.profile_image_url||x.user.avatar_large)+'") ></div>',
+      '<div class="coner_rt">',
+        (x.reposts_count)?('转发:'+x.reposts_count):"",
+        (x.comments_count)?(' 评论:'+x.comments_count):"",
+      '</div>',
+      '<div class="flex" id="post_'+x.id+'">',
+        '<h1>'+x.user.name+':  </h1>',
+        '<div class="text">'+x.text+'</div>',
+        '<footer>'+ x.created_at+'来自:'+x.source+'</footer>',
+      '</div>',
+      (x.bmiddle_pic)?'<img src="'+x.bmiddle_pic+'"></img>':""
+      ].join("");
+    html =  '<div class="'+ ((isRepost)?"repost":"post") +'">'+html+'</div>'+( (x.retweeted_status)?getPostHtml(x.retweeted_status,true):"");
+    //console.log("getPostHtml",html)
+      return html;
+}
+
+function paintPostsList(statuses){
+  var postsList = $("#postsList");
+  var html="";
+  //postsList.empty();
+  $.each(statuses, function (i, x) {
+    html += '<li>' + getPostHtml(x) + '</li>'
+    //console.log("html",html)
+   // $('<li>'+html+'</li>').prependTo(postsList)[0].post=x;
+  })
+     $('  <li data-role="list-divider" >'+Date()+'<span class="ui-li-count">'+statuses.length+'</span></li>'+html).prependTo(postsList);
+  postsList.listview('refresh');
+}

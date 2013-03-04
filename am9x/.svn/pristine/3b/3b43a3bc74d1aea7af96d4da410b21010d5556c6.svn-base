@@ -1,0 +1,3 @@
+var redirect_url = sessionStorage.redirect_url || "/"
+console.log("redirect_url",redirect_url);
+location.assign(redirect_url)

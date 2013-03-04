@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>perspective origin</title>
+</head>
+<style>
+.body { width: 100px; height: 100px;
+        background-color: beige; border: 1px solid brown;
+        font-size: 150%; padding: 10px;
+}
+</style>
+<body style="-webkit-perspective: 800; "       >
+ <div style="-webkit-transform-style: preserve-3d;">
+    <div class="body"
+     style="position:absolute;       -webkit-transform: rotateY(30deg) translateZ(80px); ">
+     <h2>Left</h2>
+    </div>
+    <div class="body"
+     style="position:absolute;       -webkit-transform: rotateY(90deg) translateZ(80px); ">
+     <h2>Center</h2>
+    </div>
+    <div class="body"
+     style="position:absolute;       -webkit-transform: rotateY(120deg) translateZ(80px);">
+     <h2>Right</h2>
+    </div>
+ </div>
+    <p align="center">The center element is edge-on, and not visible.</p>
+</body>
+</html>

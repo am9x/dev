@@ -1,0 +1,9 @@
+﻿$(document).bind("mobileinit", function(e){
+  //apply overrides here
+  console.log("mobileinit",this,e)
+  //$.mobile.hashListeningEnable = false;
+   $.extend(  $.mobile , {
+    hashListeningEnable: false
+  });
+  console.log("$.mobile.hashListeningEnable",$.mobile.hashListeningEnable)
+});

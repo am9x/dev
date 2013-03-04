@@ -1,0 +1,265 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html{
+
+   /** 
+	*	The background of the HTML element is
+	*	visible as the top and bottom dark strips.
+	*/
+	 
+	background-color:#424242;
+}
+
+body{
+	font-size:13px;
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	
+   /**
+	*	Using the body element as a 
+	*	container for the animation
+	*/
+	
+	left:0;
+	position:fixed;
+	top:5px;
+	bottom:5px;
+	width:300%;
+}
+
+
+.step{
+	/* Each step takes a third of the width */
+	
+	float:left;
+	height:100%;
+	width:33.3333%;
+	overflow:hidden;
+	position:relative;
+}
+
+/* Step 1 */
+
+#step1{ background:url('img/bg_1.jpg') no-repeat center center #6f7c18;}
+
+#step1 textarea{
+	-moz-box-shadow:-7px 7px 0 #637018;
+	-webkit-box-shadow:-7px 7px 0 #637018;
+	box-shadow:-7px 7px 0 #637018;
+}
+
+#step1 a.button{
+	-moz-box-shadow:-4px 4px 0 #637018;
+	-webkit-box-shadow:-4px 4px 0 #637018;
+	box-shadow:-4px 4px 0 #637018;
+}
+
+#step1 a.button:active{
+	
+	/* The pressed state of the button */
+	
+	-moz-box-shadow:-2px 2px 0 #637018;
+	-webkit-box-shadow:-2px 2px 0 #637018;
+	box-shadow:-2px 2px 0 #637018;
+}
+
+#step1 h1{ background-color:#4a5310;}
+
+/* Step 2 */
+
+#step2{ background:url('img/bg_2.jpg') no-repeat center center #175765;}
+
+#step2 textarea{
+	-moz-box-shadow:-7px 7px 0 #154b5b;
+	-webkit-box-shadow:-7px 7px 0 #154b5b;
+	box-shadow:-7px 7px 0 #154b5b;
+}
+
+#step2 a.button{
+	-moz-box-shadow:-4px 4px 0 #154b5b;
+	-webkit-box-shadow:-4px 4px 0 #154b5b;
+	box-shadow:-4px 4px 0 #154b5b;
+}
+
+#step2 a.finish{ margin-left:20px;}
+#step2 a.back{ margin-left:-120px;}
+
+
+#step2 a.button:active{
+	-moz-box-shadow:-2px 2px 0 #154b5b;
+	-webkit-box-shadow:-2px 2px 0 #154b5b;
+	box-shadow:-2px 2px 0 #154b5b;
+}
+
+#step2 h1{ background-color:#0f3943;}
+
+/* Step 3 */
+
+#step3{ background:url('img/bg_3.jpg') no-repeat center center #6a4214;}
+
+#step3 .results{
+	-moz-box-shadow:-7px 7px 0 #5d3f16;
+	-webkit-box-shadow:-7px 7px 0 #5d3f16;
+	box-shadow:-7px 7px 0 #5d3f16;
+}
+
+#step3 a.button{
+	-moz-box-shadow:-4px 4px 0 #5d3f16;
+	-webkit-box-shadow:-4px 4px 0 #5d3f16;
+	box-shadow:-4px 4px 0 #5d3f16;
+}
+
+#step3 a.button:active{
+	-moz-box-shadow:-2px 2px 0 #5d3f16;
+	-webkit-box-shadow:-2px 2px 0 #5d3f16;
+	box-shadow:-2px 2px 0 #5d3f16;
+}
+
+#step3 h1{ background-color:#472c0d;}
+
+/* Each step contains a section, centered in the page */
+
+.section{
+	height:550px;
+	left:50%;
+	margin:-275px 0 0 -328px;
+	position:absolute;
+	top:50%;
+	width:655px;
+}
+
+h1{
+	/* The step text */
+
+	font-family:'LeagueGothicRegular',Arial,Helvetica,sans-serif;
+	font-size:60px;
+	position:absolute;
+	right:488px;
+	text-align:right;
+	top:0;
+	width:5000px;
+	padding:20px 70px 20px 20px;
+	font-weight:normal;
+}
+
+h2{
+	/* The instruction text */
+	position:absolute;
+	right:0;
+	top:50px;
+	font-weight:normal;
+	font-style:italic;
+}
+
+
+h2,a.button{
+	font-family:'Myriad Pro', Corbel, Arial, Helvetica, sans-serif;
+}
+
+.section textarea,
+.section .results{
+	background-color:#fcfcfc;
+	border:0;
+	bottom:100px;
+	color:#888888;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	height:230px;
+	padding:20px;
+	position:absolute;
+	width:615px;
+	
+	outline:none;
+	resize:none;
+	overflow:auto;
+}
+
+.section .results{
+	padding-right:0;
+	height:210px;
+	bottom:110px;
+}
+
+a.button,
+a.button:visited{
+	background-color:#DFDFDF;
+	border:1px solid #EEEEEE;
+	bottom:0;
+	color:#888888;
+	font-size:18px;
+	font-style:italic;
+	font-weight:bold;
+	padding:10px 20px;
+	position:absolute;
+	text-align:center;
+	text-shadow:1px 1px 0 #FFFFFF;
+	width:60px;
+	left:50%;
+	margin-left:-30px;
+}
+
+a.button:hover{
+	background-color:#eee;
+}
+
+a.button:active{
+	bottom:-2px;
+	margin-left:-32px;
+}
+
+p.error{
+	color:darkred;
+	font-size:12px;
+	left:50%;
+	margin:-5px 0 0 -200px;
+	position:absolute;
+	text-align:center;
+	top:50%;
+	width:400px;
+}
+
+/* The results displayed in the final step */
+
+.result{
+	float:left;
+	height:50px;
+	margin:0 15px 20px 0;
+	overflow:hidden;
+	padding:0 0 0 60px;
+	position:relative;
+	width:125px;
+}
+
+.result img{
+	height:50px;
+	left:0;
+	position:absolute;
+	width:50px;
+}
+
+.result p{
+	font-family:Corbel,'Myriad Pro',Arial,Helvetica,sans-serif;
+	font-size:18px;
+	font-style:italic;
+	font-weight:bold;
+	white-space:nowrap;
+	margin-top:5px;
+}
+
+.result p i{
+	color:#AAAAAA;
+	display:block;
+	font-size:14px;
+}
+
+/* Generic hyperlink styles */
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	border-bottom:1px dotted #97cae6;
+	color:#97cae6;
+}

@@ -1,0 +1,25 @@
+﻿$(document).ready(function (x) {
+
+  $("#pagePostDetail").bind("pageshow",function(obj,op){
+    console.log("#pagePostDetail.pageshow:",am9wb.statusId);      
+    cmd_pagePostDetail_loadstatus();
+  })
+  
+
+  
+  $(".flex" ).live("click", function(evt,op){
+        am9wb.statusId=this.id.replace(/post_/,"");
+        console.log("click am9wb.statusId:",am9wb.statusId);
+        $.mobile.changePage( "#pagePostDetail", { transition: "pop",reverse :true} );
+  });
+  
+  $('#pagePostsList [data-icon="refresh"]').live("click",function(){
+      cmd_pagePostsList_refresh();
+  });
+  
+  $('#pagePostsDetail [data-icon="refresh"]').live("click",function(){
+      cmd_pagePostDetail_loadstatus();
+  });
+  cmd_pagePostsList_refresh();
+
+})

@@ -1,0 +1,34 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>paint </title> 
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>  
+  <script src="resources/event.js"></script>  
+  <script src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js" djConfig="isDebug:true"></script>
+</head> 
+<body> 
+
+	<div d_ata-role="page_1" class="type-index" id="pagePostsList">
+		<div da_ta-role="header" data-position="fixed" data-theme="c" >
+		<h1>paint<span class="ui-li-count">12</span></h1>	
+    <a href="#pageSetup" data-icon="gear" data-role="button" data-rel="dialog" data-transition="pop">设定</a>
+	</div><!-- /header -->
+	<div da_ta-role="content">
+<canvas id="myCanvas" width=800 height=600 style="background:skyBlue">Your browser does not have 
+    support for Canvas.  You should see:
+    <span style="display:block;width:150px;height:100px;background:#00f">&nbsp;</span></canvas>
+	</div><!-- /content -->
+	<!-- <div data-role="footer" c       2140610257        lass="footer-docs" data-theme="c"></div> -->
+	
+  
+	</div><!-- /page -->
+  
+	</body>
+	</html>

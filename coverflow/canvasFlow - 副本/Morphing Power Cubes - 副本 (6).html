@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Morphing Power Cubes</title>
+         <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript"></script>
+  <style type="text/css" media="screen">
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Lucida Grande', Verdana, Arial;
+      font-size: 12px;
+      background-image: -webkit-gradient(radial,
+                            50% 500, 1,
+                            50% 500, 400,
+                            from(rgba(255, 255, 255, 0.3)),
+                            to(rgba(255, 255, 255, 0)));
+     background-repeat: no-repeat;
+    }
+
+    #container {
+      width: 100%;
+      height: 700px;
+      -webkit-perspective: 1800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 350px;
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+      -webkit-transition: -webkit-transform 60s;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform : translateZ(-400px);
+    }
+    
+    #shape {
+      position: relative;
+      top: 160px;
+      margin: 0 auto;
+      height: 200px;
+      width: 200px;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+    .plane {
+      position: absolute;
+      height: 200px;
+      width: 220px;
+      border: 1px solid white;
+      -webkit-border-radius: 12px;
+      -webkit-box-sizing: border-box;
+      text-align: center;
+      font-family: Times, serif;
+      font-size: 124pt;
+      color: black;
+      background-color: rgba(192, 192, 222, 0.8);
+            -webkit-box-reflect: below 10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.6, transparent), to(white));
+            -webkit-box-shadow:0 0 10px rgba(64,192,192,1);
+      -webkit-transition: -webkit-transform 2s, opacity 2s;
+      -webkit-backface-visibility: hidden;
+    }
+img{-webkit-box-reflect: below 100px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.6, transparent), to(white));}
+    #shape.backfaces .plane {
+      -webkit-backface-visibility: visible;
+    }
+    
+
+
+    .animation {
+      -webkit-animation: spin 20s infinite linear;
+    }
+
+    @-webkit-keyframes spin {
+      from { -webkit-transform: rotateY(0); }
+      to   { -webkit-transform: rotateY(360deg); }
+    }
+
+    /* ---------- ring styles ------------- */
+    .ring > .p1 {
+      -webkit-transform: translateZ(450px)  scale(1.5) ;
+          background-color: rgba(255, 255, 222, 0.8);
+    }
+
+    .ring > .p2 {
+      -webkit-transform: rotateY(40deg) translateZ(400px) ;
+    }
+
+    .ring > .p3 {
+      -webkit-transform: rotateY(80deg) translateZ(400px);
+    }
+
+    .ring > .p4 {
+      -webkit-transform: rotateY(120deg) translateZ(400px) ;
+    }
+
+    .ring > .p5 {
+      -webkit-transform: rotateY(160deg) translateZ(400px) ;
+    }
+
+    .ring > .p6 {
+      -webkit-transform: rotateY(200deg) translateZ(400px) ;
+    }
+
+    .ring > .p7 {
+      -webkit-transform: rotateY(240deg) translateZ(400px) ;
+    }
+
+    .ring > .p8 {
+      -webkit-transform: rotateY(280deg) translateZ(400px) ;
+    }
+
+    .ring > .p9 {
+      -webkit-transform: rotateY(320deg) translateZ(400px) ;
+    }
+
+
+.ring > .plane{
+
+    }
+    .controls {
+      width: 80%;
+      margin: 0 auto;
+      padding: 5px 20px;
+      -webkit-border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+    .controls > div {
+      margin: 10px;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+    function ringshift(shift){
+      var rt_diff = dojo.query(".plane")[0].className.match(/p(\d+)/)[1]-1;
+      dojo.query(".plane").forEach(function(x,i){
+        var diff=-shift + rt_diff+9;
+        diff=(diff+i)%9+1
+        x.className="plane p"+diff
+        console.log(x,i,diff)
+      }) 
+    }
+    
+    function toggleShape()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'ring')) {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      } else {
+        removeClassName(shape, 'cube');
+        addClassName(shape, 'ring');
+      }
+    }
+
+    function toggleAnimation()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'animation')) {
+        removeClassName(shape, 'animation');
+      } else {
+        addClassName(shape, 'animation');
+      }
+    }
+    function toggleBackfaces()
+    {
+      var backfacesVisible = document.getElementById('backfaces').checked;
+      var shape = document.getElementById('shape');
+      if (backfacesVisible)
+        addClassName(shape, 'backfaces');
+      else
+        removeClassName(shape, 'backfaces');
+    }
+    dojo.addOnLoad(function(){
+      dojo.connect(dojo.byId("shape"),"onclick",function(evt){
+        console.log(evt,evt.target);
+        var p = evt.target.className.match(/p(\d+)/)[1]-1;
+        ringshift(p)
+      }) 
+    })
+  </script>
+</head>
+<body>
+<img src="http://www.mxic.com.cn/mxmweb/web.nsf/4ef34556e85f1e2f4825791a000dcb83/$Body/0.2D40?OpenElement&FieldElemFormat=jpg"></img>
+  <div class="controls">
+    <h1>Animations, Transitions and 3D Transforms</h1>
+    <p>This demo shows some more interesting content using 3D transforms, animations and transitions.
+      Note that you can still select the text on the the elements, even while they are rotating. Transforms elements remain
+        fully interactive.</p>
+    <p>Click Toggle Shape to switch between nested cubes and one big ring. Note how the planes move smoothly to their new locations,
+      even while the whole shape is rotating. You can even interrupt this transition by clicking again, and they move back smoothly.</p>
+    <p>Toggle the Backfaces Visible checkbox to turn backfaces on and off using <code>-webkit-backface-visibility</code>.</p>
+    <div><button onclick="toggleShape()">Toggle Shape</button></div>
+    <div><button onclick="toggleAnimation()">Toggle Animation</button></div>
+        <div><button onclick="ringshift(-1)">Prev</button><button onclick="ringshift(1)">Next</button></div>
+    
+    <div><input type="checkbox" id="backfaces" onclick="toggleBackfaces()" checked><label for="backfaces">Backfaces visible</label></div>
+  </div>
+
+  <div id="container">
+    <div id="stage">
+      <div id="shape" class="ring backfaces">
+        <div class="plane p1">1 </div>
+        <div class="plane p2">2</div>
+        <div class="plane p3">3</div>
+        <div class="plane p4">4</div>
+        <div class="plane p5">5</div>
+        <div class="plane p6">6</div>
+        <div class="plane p7">7</div>
+        <div class="plane p8">8</div>
+        <div class="plane p9">9</div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

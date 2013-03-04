@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Morphing Power Cubes</title>
+   <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" type="text/javascript"></script>
+   <script type="text/javascript">
+  var w_rotateY=function (node,deg,dur){
+    var tag = "w_rotateY";
+    var _self = node;
+    window.w_sn = window.w_sn || 1;
+    if(!_self.w_id){
+      _self.w_id =  tag + (window.w_sn++);
+      console.log("if1",window.w_sn);
+      dojo.addClass(_self,_self.w_id);
+    }  
+    _self.w_style = _self.w_style || {};
+    _self.w_style[tag] = dojo.create("style",{},document.head,"first");
+    console.log("_self.w_style",_self.w_style[tag] , _self.w_id );   
+      document.styleSheets[0].insertRule("."+_self.w_id+" {  -webkit-transform: rotateY("+deg+"deg)   !important}", 0);
+/*      
+    document.styleSheets[0].insertRule("@-webkit-keyframes spin {   to   { -webkit-transform: rotateY("+deg+"deg)  ; }   }", 0);
+    document.styleSheets[0].insertRule("."+_self.w_id+" { -webkit-animation: spin "+dur+"s linear !important}", 0);
+         var xxx = window.getComputedStyle(_self)["-webkit-transform"];
+      xxx = "."+_self.w_id+" { -webkit-transform: "+xxx+" !important}";
+      console.log("b",xxx); 
+    
+    _self.addEventListener('webkitAnimationEnd', function(x){
+      //alert(x);
+      var xxx = window.getComputedStyle(_self)["-webkit-transform"];
+      xxx = "."+_self.w_id+" { -webkit-transform: "+xxx+" !important}";
+      console.log("e",xxx);
+      document.styleSheets[0].insertRule("."+_self.w_id+" {  -webkit-transform: rotateY("+deg+"deg)   !important}", 0);
+    },false);
+    */
+    console.log("_self.w_style[tag]",_self.w_style[tag].innerHTML , document.styleSheets[0]);
+  }
+  dojo.addOnLoad(function(){
+
+   var l1=dojo.byId("l1") 
+   dojo.connect(document.body,"onkeypress",function(x){
+   console.log(x.keyIdentifier,x.keyCode)
+     if(x.keyCode==39){
+      w_rotateY(l1,60,2);
+     }
+   }) 
+  })
+   </script>
+
+  <style type="text/css" media="screen">
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Lucida Grande', Verdana, Arial;
+      font-size: 12px;
+
+    }
+
+    #container {
+      border: 1px solid white;
+      margin:auto;
+      width: 600px;
+      height: 600px;
+      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 30%;
+      
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+      -webkit-transition: -webkit-transform 2s;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform: rotateX(-10deg) 
+    }
+    #l1 {
+      width: 100%;
+      height: 100%;
+      -webkit-transition: -webkit-transform 2s;
+      -webkit-transform-style: preserve-3d;
+          -webkit-transform: rotateY(10deg) 
+    }
+    #shape {
+       background-image:url('1628220_125235001386_2.jpg');  
+      position: absolute ;
+      display:none;
+      left: 160px;
+      top:160px;
+      margin:auto;
+
+      height: 200px;
+      width: 260px;
+      -webkit-transform-style: preserve-3d;
+    }
+    .zb{
+        background-image:url('biaoc.png');  
+        background-position:center;
+                  opacity: 0.5;
+      position: absolute;
+      height: 600px;
+      width: 600px;
+    }
+    #Nony{
+      -webkit-transform: rotateX(90deg)  translateZ(0px) ;
+    }
+  #Nonz{
+    }
+  #Nonx{
+      -webkit-transform: rotateY(90deg) ;
+    }
+    #l_1 {
+      -webkit-animation: spin 12s infinite linear;
+
+    }
+
+    @-webkit-keyframes spin {
+      from { -webkit-transform: rotateY(0)  }
+      to   { -webkit-transform: rotateY(-360deg)  ; }
+    }
+    
+       .plane {
+      background-image:url('1628220_125235001386_2.jpg');  
+      position: absolute;
+      height: 200px;
+      width: 300px;
+      border: 1px solid white;
+      -webkit-border-radius: 12px;
+      -webkit-box-sizing: border-box;
+      text-align: center;
+      font-family: Times, serif;
+      font-size: 124pt;
+      -webkit-transition: -webkit-transform 2s, opacity 2s;
+      -webkit-backface-visibility: hidden;     
+      -webkit-box-shadow:0 0 10px rgba(192,168,168,51);
+            opacity: 1;
+    }
+    
+      .one {
+      -webkit-transform: scale3d(1, 1, 1) rotateX(90deg) rotateY(-40deg) translateZ(115px)  rotate(90deg); 
+                  background-image:url('w.jpg');  
+      background-size:50%;  
+    }
+    .zero {
+      -webkit-transform: scale3d(1, 1, 1) rotateX(90deg) rotateY(40deg) translateZ(115px)  rotate(-90deg); 
+                  background-image:url('w.jpg');  
+      background-size:50%;  
+    }
+  </style>
+
+</head>
+<body>
+
+
+
+  <div id="container">
+    <div id="stage">
+      <div id="l1" onclick="w_rotateY(this,30,3)">
+        <div id="Nony" class="zb" ></div>
+        <div id="Nonz" class="zb"></div>
+        <div id="Nonx" class="zb"></div>
+        <div id="shape" class="cube backfaces">
+          <div class="plane zero"></div>
+          <div class="plane one"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

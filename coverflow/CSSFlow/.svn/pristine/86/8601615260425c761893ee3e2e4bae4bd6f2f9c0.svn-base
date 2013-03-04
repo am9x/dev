@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Page-Enter" content="blendTrans(Duration=2.5)">
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=2.5)">
+<style type="text/css" >
+<!--
+	.myblen { filter:blendTrans(Duration=3) }
+-->
+</style>
+<script type="text/javascript" >
+　　<!-- 
+	　　// 获取数组记录数
+	　　function ImgArray(len) {
+	　　	this.length=len;
+	　　}
+	　　// 申明数组并给数组元素赋值，也就是把图片的相对路径保存起来，若是图片较多，可增加数组元素的个数，
+	　　// 我在这个例子中只用了三张图片，所以数组元素个数为“3"。
+	　　ImgName=new ImgArray(3);
+	　　ImgName[0]="image/cssp2.jpg"; 
+	　　// 你在制作时要把这里的"image/cssp2.jpg"换成你的图片所在的路径和图片文件名；
+	　　ImgName[1]="image/cssp3.jpg"; 
+	　　// 你在制作时要把这里的"image/cssp3.jpg"换成你的图片所在的路径和图片文件名；
+	　　ImgName[2]="image/cssp1.jpg"; 
+	　　// 你在制作时要把这里的"image/cssp1.jpg"换成你的图片所在的路径和图片文件名；
+	　　var i=1;
+	　　// 演示变换效果
+	　　function playImg() {
+	　　	if (i==2) { 
+				i=0;
+			} else { 
+				i++; 
+			}
+			
+	　　	myimg.filters[0].apply(); // 这里的“myimg”是你在网页中插入的那张图片的代号，
+	　　	myimg.src=ImgName[i]; // 当你改变了插入的图片代号时，这里也一定要改变，
+	　　	myimg.filters[0].play(); // 否则，程序在变换时可就找不着北了。
+	　　	// 设置演示时间，这里是以毫秒为单位的，所以“6000"是指每张图片的演示时间是6秒钟，这个时间值要在于
+	　　	// 滤镜中设置的转换时间值，这样当转换结束后还停留一段时间，让人看清楚图片。
+	　　	mytimeout=setTimeout("playImg()", 6000);
+　　	}
+	--> 
+</script>
+</head>
+<body onload="playImg()">
+	<img src="images/cssp1.jpg" width="200" height="134" class="mybend" id="myimg" name="myimg" align="left">
+</body>
+</html>

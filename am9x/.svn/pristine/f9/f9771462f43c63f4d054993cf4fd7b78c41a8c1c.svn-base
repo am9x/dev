@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Am9x</title> 
+	<link rel="stylesheet"  href="//code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+	<script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="//code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+<body> 
+
+	<div data-role="page" class="type-index">
+
+		<div data-role="header" data-theme="f">
+		<h1>Am9x</h1>
+		<a href="#" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="#" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+		<p>====</p>
+				
+		<ul data-role="listview" data-inset="true" id="postsList" >
+    <li><a href="https://api.weibo.com/oauth2/authorize?client_id=2140610257&response_type=token&redirect_uri=http://am9x.sinaapp.com/jqm/">jqm weibo</a></li>
+    <li><a href="https://api.weibo.com/oauth2/authorize?client_id=2140610257&response_type=token&redirect_uri=http://senchawei.sinaapp.com">senchawei.sinaapp.com</a></li>
+			
+
+		</ul>
+		
+	
+
+	</div><!-- /content -->
+
+	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>&copy; 2011-12 am9x</p>
+	</div>
+
+	</div><!-- /page -->
+
+	</body>
+	</html>

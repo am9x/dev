@@ -1,0 +1,48 @@
+﻿
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>paint </title> 
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />  
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>  
+  <script src="resources/event.js"></script>  
+</head> 
+<body> 
+
+	<div data-role="page" class="type-index" id="pagePostsList">
+		<div data-role="header" data-position="fixed" data-theme="c" >
+		<h1>paint<span class="ui-li-count">12</span></h1>	
+    <a href="#pageSetup" data-icon="gear" data-role="button" data-rel="dialog" data-transition="pop">设定</a>
+	</div><!-- /header -->
+	<div data-role="content">
+<canvas id="myCanvas" style="width:100%;height:100%;background:skyBlue">Your browser does not have 
+    support for Canvas.  You should see:
+    <span style="display:block;width:150px;height:100px;background:#00f">&nbsp;</span></canvas>
+	</div><!-- /content -->
+	<!-- <div data-role="footer" c       2140610257        lass="footer-docs" data-theme="c"></div> -->
+	
+  
+	</div><!-- /page -->
+
+  <div data-role="page"  id="pageSetup">
+		<div data-role="header" data-theme="e">
+		<h1></h1>
+	</div><!-- /header -->
+	<div data-role="content">
+   
+
+    
+
+  	</div><!-- /content -->    
+    <div data-role="footer" class="footer-docs" data-theme="e">
+<a href="#pagePostsList" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back</a>
+	</div>
+	</div><!-- /page -->
+  
+	</body>
+	</html>

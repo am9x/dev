@@ -1,0 +1,8 @@
+﻿$(document).ready(function (x) {
+ // $("#myCanvas").live("vmousedown",function(x,e){
+ // console.log(x,e,this)
+ // })
+  $("#myCanvas")[0].addEventListener("touchstart",function(e,v){
+    console.log("touchstart",e,v,this)
+  },false)
+})
